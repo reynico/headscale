@@ -919,7 +919,7 @@ func (h *Headscale) setLastStateChangeToNow() {
 	}
 
 	for _, user := range users {
-		lastStateUpdate.WithLabelValues(user.Name, "headscale").Set(float64(now.Unix()))
+		lastStateUpdate.WithLabelValues(user.Name, "headscale").Set(now.Unix())
 		if h.lastStateChange == nil {
 			h.lastStateChange = xsync.NewMapOf[time.Time]()
 		}
